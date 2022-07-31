@@ -47,9 +47,11 @@
     "prop-types": "15.8.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-router-dom": "6.3.0",
+    "react-router-dom": "^6.3.0",
+    "redirect": "^0.2.0",
     "redux": "4.2.0",
     "styled-components": "5.3.5",
+    "switch": "^0.0.0",
     "yup": "0.32.11"
   },
   "engines": {
