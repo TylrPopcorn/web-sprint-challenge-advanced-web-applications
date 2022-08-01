@@ -64,14 +64,14 @@ export default function App() {
         // put the server success message in its proper state, and redirect
         // to the Articles screen. Don't forget to turn off the spinner!
 
-        console.log("LOGIN SUCCESS: ", data)
+        //    console.log("LOGIN SUCCESS: ", data)
         localStorage.setItem("token", data.data.token)
         setMessage(data.data.message)
         setSpinnerOn(false)
         redirectToArticles()
       })
       .catch(err => {
-        console.log("LOGIN EERROR: ", err)
+        //       console.log("LOGIN EERROR: ", err)
         setMessage(err.message)
         setSpinnerOn(false)
         redirectToLogin()
@@ -93,7 +93,7 @@ export default function App() {
       .then(res => {
         // On success, we should set the articles in their proper state and
         // put the server success message in its proper state.
-        console.log("Article Fetch SUCCESS: ", res)
+        //   console.log("Article Fetch SUCCESS: ", res)
         if (msg === undefined) {
           setMessage(res.data.message)
         } else {
@@ -136,14 +136,14 @@ export default function App() {
       }
     })
       .then(res => {
-        console.log("Post Article SUCCESS: ", res)
+        //  console.log("Post Article SUCCESS: ", res)
         setMessage(res.data.message)
         setSpinnerOn(false)
         getArticles(res.data.message)
       })
       .catch(err => {
         setMessage(err.response.message)
-        console.log("Post Article FAILED: ", err.message)
+        // console.log("Post Article FAILED: ", err.message)
         setSpinnerOn(false)
       })
 
@@ -155,20 +155,20 @@ export default function App() {
     setMessage("")
     setSpinnerOn(true)
     const token = localStorage.getItem("token")
-    console.log(article, "GHSHSHHNMD")
+
     axios.put(`http://localhost:9000/api/articles/${article_id}`, article, {
       headers: {
         authorization: token
       }
     })
       .then(res => {
-        console.log("Update Article SUCCESS: ", res)
+        //   console.log("Update Article SUCCESS: ", res)
         setMessage(res.data.message)
         setSpinnerOn(false)
         getArticles(res.data.message)
       })
       .catch(err => {
-        console.log("Update Article FAILED: ", err.response.message)
+        //  console.log("Update Article FAILED: ", err.response.message)
         setMessage(err.response.message)
         setSpinnerOn(false)
       })
@@ -189,15 +189,15 @@ export default function App() {
     })
       .then(res => {
         setMessage(res.data.message)
-        console.log("Delete Article SUCCESS: ", res)
+        // console.log("Delete Article SUCCESS: ", res)
         setSpinnerOn(false)
         getArticles(res.data.message)
 
       })
       .catch(err => {
-        console.log(err)
+        // console.log(err)
         setMessage(err.response.message)
-        console.log("Delete Article FAILED: ", err)
+        //  console.log("Delete Article FAILED: ", err)
         setSpinnerOn(false)
       })
 
